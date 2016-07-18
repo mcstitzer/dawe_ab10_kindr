@@ -1,0 +1,17 @@
+{
+ "filters":
+	[
+	{
+	"isMapped" : "true",
+	"isMateMapped" : "false"
+	},
+	{
+	"isMapped" : "false",
+	"isMateMapped" : "true"
+	},
+	{
+	"isMapped" : "true",
+	"isMateMapped" : "true"
+	}
+	]
+}
