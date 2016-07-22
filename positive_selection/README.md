@@ -2,4 +2,6 @@
 
 could switch and use command line version of hyphy?
 
-for now, this would just be the alignments uploaded to their webserver?
+These alignments were uploaded to the hyphy webserver (http://test.datamonkey.org/busted)
+The branch subtending Kindr copies was selected as the foreground branch for branch/site analyses.
+
