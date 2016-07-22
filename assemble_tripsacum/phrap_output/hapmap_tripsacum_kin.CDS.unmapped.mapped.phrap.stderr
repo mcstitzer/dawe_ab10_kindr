@@ -1,0 +1,249 @@
+
+/home/mstitzer/software/phrap_1.090518/phrap hapmap_tripsacum_kin.CDS.unmapped.mapped.fna -vector_bound 0 -forcelevel 0 -minscore 10 -new_ace 
+phrap version 1.090518
+Reading parameters ... 1.008 Mbytes allocated -- total 1.008 Mbytes
+Run date:time  160629:153937
+ Done
+Total space allocated: 1.008 Mbytes; currently free: 0.969 Mbytes in 2 blocks
+Reading query file into memory ... Done
+Total space allocated: 1.008 Mbytes; currently free: 0.127 Mbytes in 2 blocks
+Complementing ... Done
+Total space allocated: 1.008 Mbytes; currently free: 0.127 Mbytes in 2 blocks
+Allocating align_entries ...1.008 Mbytes allocated -- total 2.016 Mbytes
+ Done
+Total space allocated: 2.016 Mbytes; currently free: 0.690 Mbytes in 3 blocks
+
+WARNING -- PROBABLE NOMENCLATURE VIOLATION; > 100 READS PER SUBCLONE
+
+WARNING -- PROBABLE NOMENCLATURE VIOLATION; > 100 READS PER SUBCLONE
+
+WARNING -- PROBABLE NOMENCLATURE VIOLATION; > 100 READS PER SUBCLONE
+
+WARNING -- PROBABLE NOMENCLATURE VIOLATION; > 100 READS PER SUBCLONE
+Reading quality files ... Done
+Total space allocated: 2.016 Mbytes; currently free: 0.690 Mbytes in 3 blocks
+Testing ends ... Done
+Total space allocated: 2.016 Mbytes; currently free: 0.688 Mbytes in 3 blocks
+34.272 Mbytes allocated -- total 36.288 Mbytes
+Indexing words ...67.536 Mbytes allocated -- total 103.824 Mbytes
+ Done
+Total space allocated: 103.824 Mbytes; currently free: 1.384 Mbytes in 5 blocks
+Sorting words ... Done
+Total space allocated: 103.824 Mbytes; currently free: 1.384 Mbytes in 5 blocks
+Finding word boundaries ... Done
+Total space allocated: 103.824 Mbytes; currently free: 1.276 Mbytes in 5 blocks
+Finding complement word matches ... Done
+Total space allocated: 103.824 Mbytes; currently free: 0.716 Mbytes in 5 blocks
+Finding internal word matches ...1.008 Mbytes allocated -- total 104.832 Mbytes
+ Done
+Total space allocated: 104.832 Mbytes; currently free: 0.684 Mbytes in 6 blocks
+Freeing word arrays ... Done
+Total space allocated: 104.832 Mbytes; currently free: 101.893 Mbytes in 9 blocks
+Finding duplicates ...  Done
+Total space allocated: 104.832 Mbytes; currently free: 101.893 Mbytes in 9 blocks
+SWATTING ... Allocating alignment string: 10 0 .................................... Done
+Total space allocated: 104.832 Mbytes; currently free: 100.346 Mbytes in 9 blocks
+Quickalign: 16276 successes, 28 failures
+36080 SWAT alignments performed. 16287 pairs have score >= 10
+Finding vector matches ...  Done
+Total space allocated: 104.832 Mbytes; currently free: 101.947 Mbytes in 7 blocks
+Making reversed pairs ... Done
+Total space allocated: 104.832 Mbytes; currently free: 100.407 Mbytes in 7 blocks
+Finding starts/ends ...  Done
+Total space allocated: 104.832 Mbytes; currently free: 100.407 Mbytes in 7 blocks
+Total # pairs: 40000, size: 2.880 Mbytes; edges12: 0; # score_hists: 0, size: 0.000 Mbytes; # query_domains: 0, size: 0.000 Mbytes; # query_datas: 0, size: 0.000 Mbytes
+Finding segments ...  Done
+Total space allocated: 104.832 Mbytes; currently free: 100.326 Mbytes in 7 blocks
+Finding more vector ...  Done
+Total space allocated: 104.832 Mbytes; currently free: 100.326 Mbytes in 7 blocks
+Finding mean offsets ...  Done
+Total space allocated: 104.832 Mbytes; currently free: 100.326 Mbytes in 7 blocks
+Finding near duplicates ...  Done
+Total space allocated: 104.832 Mbytes; currently free: 100.326 Mbytes in 7 blocks
+Finding self matches ...  Done
+Total space allocated: 104.832 Mbytes; currently free: 100.326 Mbytes in 7 blocks
+Finding node rejects ...  Done
+Total space allocated: 104.832 Mbytes; currently free: 100.326 Mbytes in 7 blocks
+Finding truncated pairs ...  Done
+Total space allocated: 104.832 Mbytes; currently free: 100.326 Mbytes in 7 blocks
+Finding multi-segment reads ...  Done
+Total space allocated: 104.832 Mbytes; currently free: 100.326 Mbytes in 7 blocks
+Finding starts/ends ...  Done
+Total space allocated: 104.832 Mbytes; currently free: 100.326 Mbytes in 7 blocks
+Finding deletions ... Sorting pairs ... Done Done
+Total space allocated: 104.832 Mbytes; currently free: 100.326 Mbytes in 7 blocks
+Finding extents ...  Done
+Total space allocated: 104.832 Mbytes; currently free: 100.273 Mbytes in 7 blocks
+Printing qualities ... Done
+Total space allocated: 104.832 Mbytes; currently free: 100.273 Mbytes in 7 blocks
+Computing LLR scores ... Done
+Total space allocated: 104.832 Mbytes; currently free: 100.273 Mbytes in 7 blocks
+Finding extents ...  Done
+Total space allocated: 104.832 Mbytes; currently free: 100.273 Mbytes in 7 blocks
+Computing LLR scores ... Done
+Total space allocated: 104.832 Mbytes; currently free: 100.273 Mbytes in 7 blocks
+Printing qualities ... Done
+Total space allocated: 104.832 Mbytes; currently free: 100.273 Mbytes in 7 blocks
+Printing coverage ... Done
+Total space allocated: 104.832 Mbytes; currently free: 100.273 Mbytes in 7 blocks
+Finding blocked reads ...  Done
+Total space allocated: 104.832 Mbytes; currently free: 100.273 Mbytes in 7 blocks
+Merging ...Sorting pairs ... Done
+
+Pass: 1
+#reads  #contigs (not counting singlets)
+    1    122
+    2     15
+    3     15
+    4      6
+    5      8
+    6      6
+    7      3
+    8      3
+    9      3
+   10      6
+   11      1
+   12      1
+   13      1
+   14      2
+   15      1
+   16      3
+   17      1
+   18      1
+   19      1
+   22      1
+   26      2
+   27      1
+   41      1
+   45      1
+   74      1
+  128      1
+  136      1
+
+Pass: 3
+#reads  #contigs (not counting singlets)
+    1     34
+    2      9
+    3      9
+    4     10
+    5      6
+    6      7
+    7      5
+    8      2
+    9      3
+   10      5
+   11      1
+   12      1
+   13      1
+   14      2
+   16      1
+   17      2
+   18      4
+   19      2
+   21      1
+   22      2
+   27      1
+   28      1
+   46      1
+   52      1
+  137      1
+  237      1
+
+Pass: 4
+#reads  #contigs (not counting singlets)
+    1      4
+    2      4
+    3     11
+    4      8
+    5      4
+    6      5
+    7      6
+    8      3
+    9      3
+   10      5
+   12      1
+   13      1
+   14      1
+   16      1
+   17      2
+   18      2
+   19      2
+   20      1
+   22      1
+   24      1
+   28      1
+   32      1
+   35      1
+   43      1
+   52      1
+   53      1
+  150      1
+  243      1
+
+Read equivalence class histogram:
+    1  226
+    2   10
+    3    7
+    4    8
+    5    6
+    6    6
+    7    4
+    8    5
+    9    2
+   10    3
+   11    1
+   12    1
+   14    1
+   17    1
+   18    2
+   19    1
+   20    1
+   22    2
+   24    1
+   28    2
+   35    1
+   41    1
+   43    1
+   52    1
+  148    1
+  213    1
+ Done
+Total space allocated: 104.832 Mbytes; currently free: 99.921 Mbytes in 31 blocks
+Merging chimeras ... Done
+Total space allocated: 104.832 Mbytes; currently free: 99.921 Mbytes in 31 blocks
+Merging other singletons ...
+LLR_join_cutoff: -60
+ Done
+Total space allocated: 104.832 Mbytes; currently free: 99.921 Mbytes in 31 blocks
+Finding extents ...  Done
+Total space allocated: 104.832 Mbytes; currently free: 100.050 Mbytes in 31 blocks
+Making contig sequences ... Done
+Total space allocated: 104.832 Mbytes; currently free: 99.929 Mbytes in 97 blocks
+Aligning reads to contigs ... Done
+Total space allocated: 104.832 Mbytes; currently free: 99.900 Mbytes in 99 blocks
+Revising contigs ... Done
+Total space allocated: 104.832 Mbytes; currently free: 99.608 Mbytes in 79 blocks
+ 596 old base segments, 0.019 Mb
+ 6684 new base segments, 0.214 Mb
+ total old contig length 20599, 0.062 Mb
+ total new contig length 20599, 0.062 Mb
+Aligning reads to contigs ... Done
+Total space allocated: 104.832 Mbytes; currently free: 99.578 Mbytes in 78 blocks
+Finding unaligned pairs ...  Done
+Total space allocated: 104.832 Mbytes; currently free: 99.578 Mbytes in 78 blocks
+Total # segment blocks: 1, size: 0.080 Mbytes
+Printing contigs ...  Done
+Total space allocated: 104.832 Mbytes; currently free: 99.553 Mbytes in 75 blocks
+Total # segment blocks: 1, size: 0.080 Mbytes
+Writing contigs ... Done
+Total space allocated: 104.832 Mbytes; currently free: 99.553 Mbytes in 76 blocks
+Mapping reads by name ... Done
+Total space allocated: 104.832 Mbytes; currently free: 99.553 Mbytes in 76 blocks
+Checking pairs ... Done
+Total space allocated: 104.832 Mbytes; currently free: 99.553 Mbytes in 76 blocks
+Total space allocated: 104.832 Mbytes; currently free: 99.553 Mbytes in 76 blocks
+Total # pairs: 40000, size: 2.880 Mbytes; edges12: 0; # score_hists: 0, size: 0.000 Mbytes; # query_domains: 0, size: 0.000 Mbytes; # query_datas: 0, size: 0.000 Mbytes
+Total # segment blocks: 1, size: 0.080 Mbytes
+Total # diffs: 87843, in 18557 lists, size: 0.088 Mbytes
+Total # tags: 390, size: 0.019 Mbytes
+
