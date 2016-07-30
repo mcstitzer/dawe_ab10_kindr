@@ -1,0 +1,26 @@
+TE relative position	TSD	TE order	best blast hit to maizetedb.org	insertion position in overall alignment (put file name here)
+upstream1				
+upstream2				
+upstream3	GTATG	LTR (solo)		
+upstream4	CCGGG	LTR		
+upstream5	ATAAT	LTR		
+gene1				
+gene2	TCACGTGTTTCT	LINE		
+gene3	GTACGTGCAATGGT	LINE	RIL_jikeuf_AC211152-0	
+gene4	CTTGG	LTR	RLC_ji_AC192600-3526	
+gene5	CATAG	LTR	RLX_tuteh_AC183372-584	
+gene6		?		
+downstream1		LINE	RIL_loneok_AC193379-0	
+downstream2	TTTACCGATCTTCT	LINE	RIL_afeda_AC208414-0	
+downstream3	?	LINE	RLX_hiimam_AC207734-9687	
+downstream4	?	?	RLG_gyma_AC190530-2365	
+downstream5	ACGTG	LTR	RLC_ji_AC210731-10832	
+downstream6	GCATT	LTR		
+downstream7	GCTGT	LTR		
+downstream8	AATTC	LTR (solo)/TIR		
+downstream9	TAAAC	SOLO		
+downstream10	AAATT	?		
+downstream11	?	?		
+downstream12	GTTCC	LTR (solo)	RLC_bote_AC211535-11252	
+downstream13	GAGCC	LTR	RLC_opie_AC202033-7274	
+downstream14	GAACC	LTR		
