@@ -3,7 +3,7 @@ library(reshape2)
 library(stringr)
 
 ### need path to where you save the files
-filenames=list.files('te_alignments/dateable_LTRs/*.fa')
+filenames=list.files('te_alignments/dateable_LTRs/', pattern='.fa')
 
 ages=data.frame(tename=str_split_fixed(filenames, '_', 3)[,1])
 ages$ybp=NA
