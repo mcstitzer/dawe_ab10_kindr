@@ -1,26 +1,27 @@
-TE relative position	TSD	TE order	best blast hit to maizetedb.org	insertion position in overall alignment (put file name here)
-upstream1				
-upstream2				
-upstream3	GTATG	LTR (solo)		
-upstream4	CCGGG	LTR		
-upstream5	ATAAT	LTR		
-gene1				
-gene2	TCACGTGTTTCT	LINE		
-gene3	GTACGTGCAATGGT	LINE	RIL_jikeuf_AC211152-0	
-gene4	CTTGG	LTR	RLC_ji_AC192600-3526	
-gene5	CATAG	LTR	RLX_tuteh_AC183372-584	
-gene6		?		
-downstream1		LINE	RIL_loneok_AC193379-0	
-downstream2	TTTACCGATCTTCT	LINE	RIL_afeda_AC208414-0	
-downstream3	?	LINE	RLX_hiimam_AC207734-9687	
-downstream4	?	?	RLG_gyma_AC190530-2365	
-downstream5	ACGTG	LTR	RLC_ji_AC210731-10832	
-downstream6	GCATT	LTR		
-downstream7	GCTGT	LTR		
-downstream8	AATTC	LTR (solo)/TIR		
-downstream9	TAAAC	SOLO		
-downstream10	AAATT	?		
-downstream11	?	?		
-downstream12	GTTCC	LTR (solo)	RLC_bote_AC211535-11252	
-downstream13	GAGCC	LTR	RLC_opie_AC202033-7274	
-downstream14	GAACC	LTR		
+TE_relative_position_to_ATG	insertion_position_relative_to_ATG	TSD_sequence	Indel_length_max_across_all_copies	TE_order	Avg.age_yrs_if_LTR	best_blast_hit_e-10	TE_present_C4	TE_present_F6	TE_present_B2	TE_present_B9	TE_present_E9	TE_present_G11	TE_present_B1	TE_present_B10
+upstream5	-4750	ATAAT (RC)	toNestedUnaligned	LTR	316983.2	RLG_huck_AC193313-3542	1	NA	1	1	1	NA	0	NA
+upstream4	-3797	CCGGG (RC)	5487	LTR	475862	RLC_opie_AC201793-7083	0	NA	0	0	0	NA	1	NA
+upstream3	-1279	GTATG (RC)	1200	LTR (solo)	NA	RLC_ji_AC215728-13156	1	NA	1	1	1	0	0	NA
+upstream2	-252	unclear	691	unknown	NA	DTA_ZM00172_consensus	0	NA	0	0	0	1	1	NA
+upstream1	-248	unclear	toBACend	TIR (Mutator)	NA	DTM_Zm01468_AC186160-1	0	NA	0	0	0	0	0	1
+gene1	887	129bp_direct_repeat	2145	unknown	NA	NA	0	NA	0	0	0	0	0	1
+gene2	3038	TCACGTGTTTCT	6791	LINE	NA	RIL_leijoh_AC212369-0	1	NA	1	1	1	1	1	0
+gene3	3038	GTACGTGCAATGGT	893	LINE	NA	RIL_jikeuf_AC211152-0	0	NA	1	0	0	0	0	0
+gene4	3038	CTTGG	9519	LTR	34678.31	RLC_ji_AC192600-3526	1	0	0	0	0	0	0	0
+gene5	4914	CATAG	1775	LTR	227859.5	RLX_tuteh_AC183372-584	1	0	0	0	0	0	0	0
+gene6	5155	AAATGTACAGATGTCT	2530	LINE	NA	RIL_ejoet_AC212216-0	0	1	0	0	0	0	0	0
+downstream1	8901	BAC_end	3375	LINE	NA	RIL_loneok_AC193379-0	0	0	1	0	0	0	0	0
+downstream2	9023	TTTACCGATCTTCT	1486	LINE	NA	RIL_afeda_AC208414-0	0	0	NA	0	0	0	0	1
+downstream3	9313	BAC_end	2934	LINE	NA	RLX_hiimam_AC207734-9687	0	0	NA	0	0	0	0	1
+downstream4	10278	(AT)n	7066	unknown	NA	RLG_gyma_AC212146-11616	0	0	NA	0	0	0	1	NA
+downstream5	12500	ACGTG	18788	LTR	123595.1	RLC_ji_AC215728-13156	0	0	NA	0	0	1	0	NA
+downstream6	12513	GCATT	10156	LTR	71380.04	RLG_prem1_AC200105-6751	0	1	NA	1	1	0	0	NA
+downstream7	12513	GCTGT	8937	LTR	31077.52	RLC_opie_AC202033-7274	0	0	NA	1	1	0	0	NA
+downstream8	12513	AATTC	1570	LTR (solo)/TIR	NA	RLG_huck_AC203007-7610	0	0	NA	1	1	0	0	NA
+downstream9	12910	TAAAC	9593	LTR (solo)	NA	RLG_xilon-diguus_AC185317-1058	0	1	NA	1	1	1	0	NA
+downstream10	12910	AAATT_unclear	156	uknown	NA	NA	0	1	NA	0	0	1	0	NA
+downstream10.5	12910	unclear	10709	unknown	NA	RLG_gyma_AC189750-2238	0	0	NA	1	1	1	0	NA
+downstream11	12910	unclear	323	unknown	NA	NA	0	1	NA	0	0	0	0	NA
+downstream12	12910	GTTCC	2472	LTR (solo)	NA	RLC_bote_AC211535-11252	0	0	NA	0	1	0	0	NA
+downstream13	12910	GAGCC	8945	LTR	0	RLC_opie_AC202033-7274	0	0	NA	1	0	0	0	NA
+downstream14	14589	GAACC	7008	LTR	355686.6	RLC_ji_AC202456-7443	0	1	NA	1	1	1	0	NA
