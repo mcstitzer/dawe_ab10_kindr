@@ -11,20 +11,4 @@ export PATH=$PATH:/home/mstitzer/software/bin
 
 #module load mrbayes/3.3.2
 
-
-### generate tree thinking about codons as being a real part of evolutions
-#mpirun -np 16 mb-mpi kindr_aln_codon.nt.nex > kindr_aln_codon.nt.mpi.log
-#mb kindr_aln_codon.nt.nex
-
-### test for positive selection at specific codon positions
-#mpirun -np 16 mb-mpi kindr_aln_codon.nex > kindr_aln_codon.mpi.log
-#mb kindr_aln_codon.nex
-
-
-### then just do it with nt alignment
-#mb kindr_aln_nt.nex
-
-#mb Kindrlogs_only_full_length_genbank_TranslatorX_Prank_align.tandemdup2kindr.codon.nex
-
-#mb Kindrlogs_only_full_length_genbank_TranslatorX_Prank_align.codon.10m.nex
-mb Kindrlogs_only_full_length_genbank_TranslatorX_Prank_align.codon.100m.nex
+mb kinesin_homologs_TranslatorX_Prank_align.100m.nex 
