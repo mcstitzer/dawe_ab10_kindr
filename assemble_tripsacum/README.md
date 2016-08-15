@@ -6,7 +6,6 @@ Software needed:
 - bwa mem
 - samtools
 - bedtools
-- qiime ## although I have changed this! think about whether I should here as well.
 - mafft
 
 Once Kindr has a NCBI accession number, can grab that as well here, but just including the fasta reference of ZmKindr CDS and ZmKin11 CDS for now.

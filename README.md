@@ -4,7 +4,7 @@ Data and scripts included to:
 
 1. ```assemble_tripsacum/``` perform a local assembly of tripsacum kinesin
 
-2. ```kinesin_tree/``` build tree of related kinesins as in Supplementary Figure 2
+2. ```kinesin_tree/``` build tree of related kinesins as in Supplementary Figure 7
 
 3. ```positive_selection/``` test for positive selection on kindr copies using BUSTED
 
