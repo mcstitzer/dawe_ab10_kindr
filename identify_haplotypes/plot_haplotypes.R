@@ -136,13 +136,9 @@ upmissing=upmissing[,genenames]
 allTE[allTE==F]=NA
 
 ### get parsimony informative snps ready
-snps=read.csv('~/Dropbox/ab10/parsimony_informative_ALL_UP-GENE-DOWN.csv', header=F, colClasses='character')
-colnames(snps)=paste(snps[1,], snps[2,], snps[3,], snps[4,], snps[5,], sep='')  ## convert the dumb vertical positions to actual numbers
-snps=snps[-(1:5),] #remove the vertical numbers
-rownames(snps)=snps[,1]
-snps=snps[,-1]
+snps=read.csv('parsimony_informative_ALL_UP-GENE-DOWN.csv', header=T, colClasses='character')
 
-snppos=as.numeric(colnames(snps))
+snppos=as.numeric(colnames(snps)[-1])  ## first is the sequence names
 snps=t(snps)
 snps=snps[,genenames]
 snps[snps=='-']=NA
