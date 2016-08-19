@@ -144,7 +144,7 @@ snps=snps[-(1:5),] #remove the vertical numbers
 rownames(snps)=snps[,1]
 snps=snps[,-1]
 
-snppos=as.numeric(colnames(snps))
+snppos=as.numeric(colnames(snps)[-1])  ## first is the sequence names
 snps=t(snps)
 snps=snps[,genenames]
 snps[snps=='-']=NA
