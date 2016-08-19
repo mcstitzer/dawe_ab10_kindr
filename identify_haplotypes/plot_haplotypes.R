@@ -136,7 +136,9 @@ upmissing=upmissing[,genenames]
 allTE[allTE==F]=NA
 
 ### get parsimony informative snps ready
-snps=read.csv('~/Dropbox/ab10/parsimony_informative_ALL_UP-GENE-DOWN.csv', header=F, colClasses='character')
+snps=read.csv('parsimony_informative_ALL_UP-GENE-DOWN.csv', header=F, colClasses='character')
+## path on my computer
+#snps=read.csv('~/Dropbox/ab10/parsimony_informative_ALL_UP-GENE-DOWN.csv', header=F, colClasses='character')
 colnames(snps)=paste(snps[1,], snps[2,], snps[3,], snps[4,], snps[5,], sep='')  ## convert the dumb vertical positions to actual numbers
 snps=snps[-(1:5),] #remove the vertical numbers
 rownames(snps)=snps[,1]
@@ -297,15 +299,23 @@ pairwise=list(
 
 ## maybe we want the tree structure on the left side?
 library(ape)
-tree=read.tree(file='~/Dropbox/ab10/tree_fixing_root_to12mya/kindr_cds.frombac.withkin11.notga.maizeingroup.12mya.strict.mcc.newick')
-kindr=drop.tip(tree, "Sorghum_bicolor_XM_002461259")
-kindr=drop.tip(kindr, "Zea_mays_Kin11_NM_001305870")
+tree=read.tree(file='tree_alongside_haplotypes/just_kindr_plus_trip_sorgh_maize.lognormaluncorrrelaxedclock.newick')
+## for my computer
+#tree=read.tree(file='~/Documents/dawe_ab10_kindr/identify_haplotypes/tree_alongside_haplotypes/just_kindr_plus_trip_sorgh_maize.lognormaluncorrrelaxedclock.newick')
+#kindr=drop.tip(tree, "Sorghum_bicolor_XM_002461259")
+#kindr=drop.tip(kindr, "Zea_mays_Kin11_NM_001305870")
+kindr=collapse.singles(tree)
+### rotate the tree tips so that they are in the same order as the haplotypes and their order in the genome
+kindr=rotateConstr(kindr, c(genenames, kindr$tip.label[9:12]))
+kindr$tip.label=c(genenames, kindr$tip.label[9:12])
 kindr$edge.length=kindr$edge.length/100000
 #par(new=TRUE)
 
 
 #pdf('~/Downloads/kindr_haplotype_blocks.pdf', 15,5)
 #pdf('~/Downloads/kindr_haplotype_blocks.tree.pdf', 10,4)
+
+
 
 ### we want to add a tree to the left side
 layout(matrix(c(0,1,0,2,2,2), nrow=3), widths=c(0.1,0.9), heights=c(0.132,0.78,0.075))
@@ -325,6 +335,7 @@ par(mar=c(5.1,0,4.1,2.1))
 #plot.phylo.XLIM(kindr, xlimrange=c(0,200), y.lim=10 show.tip.label=F, add=T)
 
 #par(new=T)
+
 
 #plot.phylo(kindr, show.tip.label=F, x.lim=20000)
 ## plot all pairwise comparisons
@@ -448,152 +459,39 @@ legend(14000, 10.4, c('LTR', 'soloLTR', 'LINE', 'Mutator', 'unknown'), col=adjus
 #plot.phylo.XLIM(kindr, xlimrange=c(0,200), show.tip.label=F, add=T)
 
 
+##############################
+## repeat plot without TEs  ##
+##############################
+## want to have the figures with font Arial
+library(extrafont)
+loadfonts()
+pdf('kindr_withtrip_haplotypes.pdf', family='Arial', 10, 3.5)
+## on my computer
+#pdf('~/Downloads/kindr_withtrip_haplotypes.pdf', family='Arial', 10,3.5)
 
-#############################################################################################
-#############
-## plot just 3kb up and 3kb down
-##############
-#pdf('~/Downloads/kindr_haplotype_blocks.3kbflank.pdf', 15,5)
-## plot all pairwise comparisons
-plotpos=snppos-up
-#plotpos=c(-up, plotpos)
-#plot(c(max(upos)-upos, max(upos)+gpos, max(upos)+max(gpos)+dpos), rep(-1, length(c(upos, gpos, dpos))), ylim=c(0,length(pairwise)+1), yaxt='n', xlim=c(-5000, 15000))
-plot(c(max(upos)-upos, max(upos)+gpos, max(upos)+max(gpos)+dpos), rep(-1, length(c(upos, gpos, dpos))), ylim=c(0,10), yaxt='n', xlim=c(-2500, 13000),
-     bty='n', xlab='', ylab='', cex.axis=0.6, mgp = c(3, .3, 0))
-#axis(2, at=1:8, labels=genenames, las=1)
-## put down just the 1 C4 haplotype
-segments(-up, 1, gene+down, 1, lwd=8, col='purple', lend=1)
-i=0
-#sapply(1:length(pairwise), function(i){
-sapply(1:7, function(i){
-  #  print(x)
-  #  x=lapply(pairwise, inverse.rle)[[i]]
-  x=pairwise[[i]]
-  #  i=i/10
-  print(i)
-  i=i+1
-  print(i)
-  #### add in missing here
-  segments(plotpos[which(is.na(x))], rep(i, length(which(is.na(x)))), plotpos[which(is.na(x))+1], rep(i, length(which(is.na(x)))), lwd=4, col='gray', lend=1, lty=1)
-  #  ((plotpos[which(is.na(x))]+plotpos[which(is.na(x))+1])/2)[2:59]==((plotpos[which(is.na(x))+1]+plotpos[which(is.na(x))+2])/2)[1:58]
-  ### doing from previous to next
-  #  segments(plotpos[which(x)], rep(i, length(which(x))), plotpos[which(x)+1], rep(i, length(which(x))), lwd=8, col='purple', lend=1)
-  #  segments(plotpos[which(!x)], rep(i, length(which(!x))), plotpos[which(!x)+1], rep(i, length(which(!x))), lwd=8, col='orange', lend=1)
-  segments((plotpos[which(x)[-1]]+plotpos[which(x)[-1]-1])/2, rep(i, length(which(x))-1), (plotpos[which(x)[-1]+1]+plotpos[which(x)[-1]])/2, rep(i, length(which(x))-1), lwd=8, col='purple', lend=1)
-  segments((plotpos[which(!x)[-1]]+plotpos[which(!x)[-1]-1])/2, rep(i, length(which(!x)-1)), (plotpos[which(!x)[-1]+1]+plotpos[which(!x)[-1]])/2, rep(i, length(which(!x)-1)), lwd=8, col='orange', lend=1)
-  #### add in missing here
-  #  segments(plotpos[which(is.na(x))], rep(i, length(which(is.na(x)))), plotpos[which(is.na(x))+1], rep(i, length(which(is.na(x)))), lwd=4, col='gray', lend=1, lty=1)
-  #  ((plotpos[which(is.na(x))]+plotpos[which(is.na(x))+1])/2)[2:59]==((plotpos[which(is.na(x))+1]+plotpos[which(is.na(x))+2])/2)[1:58]
-  #### add in the boundaries
-  ## extend haplotypes to missing data start
-  
-  ## extend haplotypes to terminii
-  if (!is.na(x[1])){
-    if (x[1]==T){
-      segments(-up, i, plotpos[1], i, lwd=8, col='purple', lend=1)
-    } else if (x[1]==F){
-      segments(-up, i, plotpos[1], i, lwd=8, col='orange', lend=1)
-    }
-  }
-  if (!is.na(x[length(x)])){
-    if (x[length(x)]==T){
-      segments(plotpos[length(x)], i, gene+down, i, lwd=8, col='purple', lend=1)
-    } else if (x[length(x)]==F){
-      segments(plotpos[length(x)], i, gene+down, i, lwd=8, col='orange', lend=1)
-    }
-  }
-  if (is.na(x[1])){
-    segments(-up, i, plotpos[1], i, lwd=4, col='gray', lend=1, lty=1)
-  }
-}
-)
-
-## pop in TEs
-for (i in 1:ncol(allTE)){
-  #  points(is.na(allTE[,i])*allpos, rep(i, length(allpos)))
-  segments(upmissing[,i][1], i, upmissing[,i][2], i, col='gray')
-  segments(downmissing[,i][1]+gene, i, downmissing[,i][2]+gene, i, col='gray')
-  segments(genemissing[,i][1], i, genemissing[,i][2], i, col='gray')
-  #  points(snppos-up, rep(i, length(snppos)), pch='|', cex=0.4, col=snpcol[,i])
-  points(allpos*allTE[,i]+nestx, rep(i, length(allpos))+0.5+nestelev, pch=25, col=tecol, bg=tecol, cex=2)
-}
-
-
-
-segments(exonstart, rep(0, length(exonstart)), exonend, rep(0,length(exonend)), col='blue', lwd=6, lend=1)
-## then for the noncoding portions of exons
-segments(dexonstart+gene, rep(0,length(dexonstart)), dexonend+gene, rep(0, length(dexonstart)), col='green', lwd=6, lend=1)
-segments(-150,0,0,0, col='green', lwd=6, lend=1)
-
-
-#text(allpos, rep(9, length(allpos)), labels=teage, pos=3, srt=90, cex=0.5)
-#legend(-3300, 8.4, rev(paste('      ', genenames, '         \n\n\n')), cex=0.49, box.lty=0)
-rect(-3300, 0, -2300, 9, col='white', border ='white')
-text(rep(-2800, 8), 1:8, labels=genenames, pos=4, cex=0.5)
-text(-2000, 0, 'Kindr exons', pos=4, cex=0.5)
-
-legend(12000, 10.4, c('LTR', 'soloLTR', 'LINE', 'Mutator', 'unknown'), col=adjustcolor(c('red', 'magenta', 'darkgreen', 'blue', 'brown'), alpha.f=0.7), pch=25, pt.bg=adjustcolor(c('red', 'magenta', 'darkgreen', 'blue', 'brown'), alpha.f=0.7), cex=0.6, bty='n')
-
-
-#########
-
-### find longest
-
-maxlen=lapply(pairwise, function(x) max(x$lengths))
-which.max(unlist(maxlen))
-
-
-
-max(rle(com)$lengths)
-
-
-### go from previous marker to present marker? as these are snps, that means non-identified sites are shared!
-segments(plotpos[which(com)-1], rep(1.5, length(which(com))), plotpos[which(com)], rep(1.5, length(which(com))), lwd=3, col='purple')
-segments(plotpos[which(!com)-1], rep(1.5, length(which(!com))), plotpos[which(!com)], rep(1.5, length(which(!com))), lwd=3, col='magenta')
-
-
-
-### try polarizing by B1
-
-
-
-
-########### 
-# COMPLETELY REDO WITH RLE
-
-
-#pdf('~/Downloads/kindr_haplotype_blocks.pdf', 15,5)
-#pdf('~/Downloads/kindr_haplotype_blocks.tree.pdf', 10,4)
-
-### we want to add a tree to the left side
-layout(matrix(c(0,1,0,2,2,2), nrow=3), widths=c(0.1,0.9), heights=c(0.132,0.78,0.075))
+### go on
+layout(matrix(c(0,1,0,2,2,2), nrow=3), widths=c(0.1,0.9), heights=c(0.002,0.98,0.065))
 #par(mar=c(5.1,0.1,4.1,0.1))
 par(mar=c(5.1,0.1,4.1,0))
 plot.phylo(kindr, show.tip.label=F)
 obj <- get("last_plot.phylo", envir = .PlotPhyloEnv)
 x <- obj$xx[1:obj$Ntip]
 y <- obj$yy[1:obj$Ntip]
-
 par(mar=c(5.1,0,4.1,2.1))
 ######
-
 #source('~/Dropbox/ab10/plot.phylo.XLIM.R')
 #par(new = TRUE)
 #plot.phylo.XLIM(kindr, xlimrange=c(-5000,-4000))
 #plot.phylo.XLIM(kindr, xlimrange=c(0,200), y.lim=10 show.tip.label=F, add=T)
-
 #par(new=T)
-
 #plot.phylo(kindr, show.tip.label=F, x.lim=20000)
 ## plot all pairwise comparisons
 plotpos=snppos-up
 #plotpos=c(-up, plotpos)
 #plot(c(max(upos)-upos, max(upos)+gpos, max(upos)+max(gpos)+dpos), rep(-1, length(c(upos, gpos, dpos))), ylim=c(0,length(pairwise)+1), yaxt='n', xlim=c(-5000, 15000))
-plot(c(max(upos)-upos, max(upos)+gpos, max(upos)+max(gpos)+dpos), rep(-1, length(c(upos, gpos, dpos))), ylim=c(0,10), yaxt='n', xlim=c(-5000, 15000),
-     bty='n', xlab='', ylab='', cex.axis=0.6, mgp = c(3, .3, 0))
-#axis(2, at=1:8, labels=genenames, las=1)
-## put down just the 1 C4 haplotype
-segments(-up, 1, gene+down, 1, lwd=8, col='purple', lend=1)
+plot(c(max(upos)-upos, max(upos)+gpos, max(upos)+max(gpos)+dpos), rep(-1, length(c(upos, gpos, dpos))), ylim=c(0,12), yaxt='n', xlim=c(-5000, 15000),
+     bty='n', xlab='', ylab='', cex.axis=1, mgp = c(3, .3, 0))
+segments(-up, 1, gene+down, 1, lwd=17, col='purple', lend=1)
 i=0
 #sapply(1:length(pairwise), function(i){
 sapply(1:7, function(i){
@@ -604,81 +502,83 @@ sapply(1:7, function(i){
   print(i)
   i=i+1
   print(i)
-  
-  for (n in 1:length(rle(x)$lengths)){
-    if(is.na(rle(x)$values[n])){
-      segments(plotpos[inverse.rle()])
-    }
-  }
-  
   #### add in missing here
-  segments(plotpos[which(is.na(x))], rep(i, length(which(is.na(x)))), plotpos[which(is.na(x))+1], rep(i, length(which(is.na(x)))), lwd=4, col='gray', lend=1, lty=1)
-  
+  #  segments(plotpos[which(is.na(x))], rep(i, length(which(is.na(x)))), plotpos[which(is.na(x))+1], rep(i, length(which(is.na(x)))), lwd=4, col='gray', lend=1, lty=1)
   #  segments(plotpos[which(is.na(x))[-1]], rep(i, length(which(is.na(x)))-1), plotpos[which(is.na(x))[-length(which(is.na(x)))]], rep(i, length(which(is.na(x)))-1), lwd=4, col='gray', lend=1, lty=1)
-  
   #  ((plotpos[which(is.na(x))]+plotpos[which(is.na(x))+1])/2)[2:59]==((plotpos[which(is.na(x))+1]+plotpos[which(is.na(x))+2])/2)[1:58]
   ### doing from previous to next
   #  segments(plotpos[which(x)], rep(i, length(which(x))), plotpos[which(x)+1], rep(i, length(which(x))), lwd=8, col='purple', lend=1)
   #  segments(plotpos[which(!x)], rep(i, length(which(!x))), plotpos[which(!x)+1], rep(i, length(which(!x))), lwd=8, col='orange', lend=1)
-  segments((plotpos[which(x)[-1]]+plotpos[which(x)[-1]-1])/2, rep(i, length(which(x))-1), (plotpos[which(x)[-1]+1]+plotpos[which(x)[-1]])/2, rep(i, length(which(x))-1), lwd=8, col='purple', lend=1)
-  segments((plotpos[which(!x)[-1]]+plotpos[which(!x)[-1]-1])/2, rep(i, length(which(!x)-1)), (plotpos[which(!x)[-1]+1]+plotpos[which(!x)[-1]])/2, rep(i, length(which(!x)-1)), lwd=8, col='orange', lend=1)
+  if(which(x)[1]==1){
+    startmatch=(c(-up,plotpos[(which(x)-1)[-1]])+plotpos[which(x)])/2
+    endmatch=(plotpos[which(x)+1]+plotpos[which(x)])/2
+  }  else{
+    startmatch=(plotpos[which(x)-1]+plotpos[which(x)])/2
+    endmatch=(plotpos[which(x)+1]+plotpos[which(x)])/2
+  }
+  if(sum(is.na(x[which(x)+1]))>0){
+    endpos=which(is.na(x[which(x)+1]))
+    endmatch[endpos]=downmissing[1,i]+gene
+  }
+  if(which(!x)[1]==1){
+    startnmatch=(c(-up,plotpos[(which(!x)-1)[-1]])+plotpos[which(!x)])/2
+    endnmatch=(plotpos[which(!x)+1]+plotpos[which(!x)])/2
+  }  else{
+    startnmatch=(plotpos[which(!x)-1]+plotpos[which(!x)])/2
+    endnmatch=(plotpos[which(!x)+1]+plotpos[which(!x)])/2
+  }
+  if(sum(is.na(x[which(!x)+1]))>0){
+    endpos=which(is.na(x[which(!x)+1]))
+    endnmatch[endpos]=downmissing[1,i]+gene
+  }
+  segments(startmatch, rep(i, length(which(x))), endmatch, rep(i, length(which(x))), lwd=17, col='purple', lend=1)
+  segments(startnmatch, rep(i, length(which(!x))), endnmatch, rep(i, length(which(!x))), lwd=17, col='orange', lend=1)
+  #  segments((plotpos[which(x)-1]+plotpos[which(x)])/2, rep(i, length(which(x))), (plotpos[which(x)+1]+plotpos[which(x)])/2, rep(i, length(which(x))), lwd=8, col='purple', lend=1)
+  #  segments((plotpos[which(!x)-1]+plotpos[which(!x)])/2, rep(i, length(which(!x))), (plotpos[which(!x)+1]+plotpos[which(!x)])/2, rep(i, length(which(!x))), lwd=8, col='orange', lend=1)
+  ###### turning off july 6 2016 and trying again ABOVE
+  #  segments((plotpos[which(x)[-1]]+plotpos[which(x)[-1]-1])/2, rep(i, length(which(x))-1), (plotpos[which(x)[-1]+1]+plotpos[which(x)[-1]])/2, rep(i, length(which(x))-1), lwd=8, col='purple', lend=1)
+  #  segments((plotpos[which(!x)[-1]]+plotpos[which(!x)[-1]-1])/2, rep(i, length(which(!x)-1)), (plotpos[which(!x)[-1]+1]+plotpos[which(!x)[-1]])/2, rep(i, length(which(!x)-1)), lwd=8, col='orange', lend=1)
   #### add in missing here
   #  segments(plotpos[which(is.na(x))], rep(i, length(which(is.na(x)))), plotpos[which(is.na(x))+1], rep(i, length(which(is.na(x)))), lwd=4, col='gray', lend=1, lty=1)
   #  ((plotpos[which(is.na(x))]+plotpos[which(is.na(x))+1])/2)[2:59]==((plotpos[which(is.na(x))+1]+plotpos[which(is.na(x))+2])/2)[1:58]
   #### add in the boundaries
   ## extend haplotypes to missing data start
-  
   ## extend haplotypes to terminii
   if (!is.na(x[1])){
     if (x[1]==T){
-      segments(-up, i, plotpos[1], i, lwd=8, col='purple', lend=1)
+      segments(-up, i, (plotpos[1]+plotpos[2])/2, i, lwd=17, col='purple', lend=1)
     } else if (x[1]==F){
-      segments(-up, i, plotpos[1], i, lwd=8, col='orange', lend=1)
+      segments(-up, i, (plotpos[1]+plotpos[2])/2, i, lwd=17, col='orange', lend=1)
     }
   }
   if (!is.na(x[length(x)])){
     if (x[length(x)]==T){
-      segments(plotpos[length(x)], i, gene+down, i, lwd=8, col='purple', lend=1)
+      segments((plotpos[length(x)]+plotpos[length(x)-1])/2, i, gene+down, i, lwd=17, col='purple', lend=1)
     } else if (x[length(x)]==F){
-      segments(plotpos[length(x)], i, gene+down, i, lwd=8, col='orange', lend=1)
+      segments((plotpos[length(x)]+plotpos[length(x)-1])/2, i, gene+down, i, lwd=17, col='orange', lend=1)
     }
   }
-  if (is.na(x[1])){
-    segments(-up, i, plotpos[1], i, lwd=4, col='gray', lend=1, lty=1)
-  }
-  
+  #    if (is.na(x[1])){
+  #       segments(-up, i, plotpos[1], i, lwd=4, col='gray', lend=1, lty=1)
+  #    }
+  #  if(sum(is.na(x))>0){
+  #    firstna=which(is.na(x))[1]
+  #    lastna=which(is.na(x))[length(which(is.na(x)))]
+  #    if (x[firstna])
+  #  }
 }
 )
-
-## pop in TEs
 for (i in 1:ncol(allTE)){
   #  points(is.na(allTE[,i])*allpos, rep(i, length(allpos)))
-  segments(upmissing[,i][1], i, upmissing[,i][2], i, col='gray', lend=1, lty=1, lwd=4)
-  segments(downmissing[,i][1]+gene, i, downmissing[,i][2]+gene, i, col='gray', lend=1, lty=1, lwd=4)
-  segments(genemissing[,i][1], i, genemissing[,i][2], i, col='gray', lend=1, lty=1, lwd=4)
-  #  points(snppos-up, rep(i, length(snppos)), pch='|', cex=0.4, col=snpcol[,i])
-  points(allpos*allTE[,i]+nestx, rep(i, length(allpos))+0.5+nestelev, pch=25, col=tecol, bg=tecol, cex=2)
-  text(allpos*allTE[,i]+nestx, rep(i, length(allpos))+0.15+nestelev, labels=round(teage/1000, digits=0), pos=3, cex=0.5)
-  
+  segments(upmissing[,i][1], i, upmissing[,i][2], i, col='gray', lend=1, lty=1, lwd=8)
+  segments(downmissing[,i][1]+gene, i, downmissing[,i][2]+gene, i, col='gray', lend=1, lty=1, lwd=8)
+  segments(genemissing[,i][1], i, genemissing[,i][2], i, col='gray', lend=1, lty=1, lwd=8)
 }
-
-
-
 segments(exonstart, rep(0, length(exonstart)), exonend, rep(0,length(exonend)), col='blue', lwd=6, lend=1)
 ## then for the noncoding portions of exons
 segments(dexonstart+gene, rep(0,length(dexonstart)), dexonend+gene, rep(0, length(dexonstart)), col='green', lwd=6, lend=1)
 segments(-150,0,0,0, col='green', lwd=6, lend=1)
+text(rep(-5850, 8), 1:12, labels=kindr$tip.label, pos=4, cex=1.4)
+#text(-3000, 0, 'Kindr exons', pos=4, cex=1.4)
 
-
-#text(allpos, rep(9, length(allpos)), labels=round(teage/1000, digits=0), pos=3, srt=90, cex=0.5)
-text(rep(-5650, 8), 1:8, labels=genenames, pos=4, cex=0.8)
-text(-2000, 0, 'Kindr exons', pos=4, cex=0.8)
-
-legend(14000, 10.4, c('LTR', 'soloLTR', 'LINE', 'Mutator', 'unknown'), col=adjustcolor(c('red', 'magenta', 'darkgreen', 'blue', 'brown'), alpha.f=0.7), pch=25, pt.bg=adjustcolor(c('red', 'magenta', 'darkgreen', 'blue', 'brown'), alpha.f=0.7), cex=0.6, bty='n')
-
-#par(new=T, yaxs='i')
-#plot.phylo.XLIM(kindr, xlimrange=c(0,200), show.tip.label=F, add=T)
-
-
-
-
+dev.off()
