@@ -1,0 +1,31 @@
+---
+title: "Plot sites of positive selection on alignment"
+output: html_notebook
+---
+
+Set up libraries
+```{r}
+library(ape)
+library(phangorn)
+```
+
+Plot aa positions.
+```{r}
+aln=read.dna('~/Dropbox/ab10/ALLkindrCDS_plus_Kindrlogs_only_full_length_genbank_TranslatorX_Prank_align.fasta', format='fasta', as.matrix=T)
+aa=trans(aln)
+image(aa, cex=0.5)
+```
+Read in the BUSTED results and plot them on the alignment. 
+```{r}
+upstream=read.csv('~/Documents/dawe_ab10_kindr/positive_selection/upstream_busted.csv')
+downstream=read.csv('~/Documents/dawe_ab10_kindr/positive_selection/downstream_busted.csv')
+```
+
+At site 114, we switch to the conserved region that is idential between both alignments.
+
+```{r}
+plot(upstream$site_index, upstream$er_constrained)
+points(downstream$site_index, downstream$er_constrained, col='red')
+
+```
+
