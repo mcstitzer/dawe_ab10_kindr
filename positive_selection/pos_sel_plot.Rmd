@@ -29,3 +29,10 @@ points(downstream$site_index, downstream$er_constrained, col='red')
 
 ```
 
+```{r}
+image(aa, cex=0.5)
+points(113+downstream$site_index, downstream$er_constrained, col='red', pch=19)
+points(c(upstream$site_index[upstream$site_index<114], upstream$site_index[upstream$site_index>113]+113), upstream$er_constrained, col='blue', pch=19)
+
+```
+
