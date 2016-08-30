@@ -9,11 +9,15 @@ Software needed:
 - bamtools
 - mafft
 
-Once Kindr has a NCBI accession number, can grab that as well here, but just including the fasta reference of ZmKindr CDS and ZmKin11 CDS for now.
 
+First, get SRA reads of *Tripsacum dactyloides*, map to Kin11 and Kindr CDS from maize, and keep only mapped reads and if present, their unmapped pairs.
+This is done in ```map_tripsacum.sh```
+
+Then, extract these reads, convert to fasta with quality, and assemble with phrap.
+This is done in ```bam_to_phrap_assembly.sh```.
 
 Assembly is in ```phrap_output/``` and contigs are ```phrap_output/hapmap_tripsacum_kin.CDS.unmapped.mapped.fna.contigs```
 
-I aligned these to each exon of ZmKin11 and ZmKindr ```hapmap_tripsacum_mapped_to_CDS.fa``` and removed introns at canonical splice boundaries *GT..AG*. 
+I aligned these contigs to Kin11 and Kindr CDS from maize, and removed introns at canonical splice boundaries *GT..AG*. 
 
-The exon-only version of the contig is ```hapmap_tripsacum_kindr_kin11_CDS_contigs.fa```
+The exon-only version of the contigs are used in tree building, as the final two entries in the file here: ```kinesin_tree/kinesin_homologs_TranslatorX_Prank_align.fa```
