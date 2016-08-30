@@ -7,4 +7,4 @@ Required software:
 - RAxML
 
 The command line used to run RAxML was:
-```/Users/michelle/Downloads/standard-RAxML-master/raxmlHPC-PTHREADS-AVX -T 2 -m GTRGAMMA -p 12345 -x 12345 -# 1000 -f a -s kinesin_homologs_TranslatorX_Prank_align.100m.fa -n kinesin_homologs```
+```/Users/michelle/Downloads/standard-RAxML-master/raxmlHPC-PTHREADS-AVX -T 2 -m GTRGAMMA -p 12345 -x 12345 -# 1000 -f a -s kinesin_homologs_TranslatorX_Prank_align.fa -n kinesin_homologs```
