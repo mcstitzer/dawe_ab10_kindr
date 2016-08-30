@@ -22,4 +22,4 @@ Assembly is in ```phrap_output/``` and contigs are ```phrap_output/hapmap_tripsa
 
 I aligned these contigs to Kin11 and Kindr CDS from maize, and removed introns at canonical splice boundaries *GT..AG*. 
 
-The exon-only version of the contigs are used in tree building, as the final two entries in the file here: ```kinesin_tree/kinesin_homologs_TranslatorX_Prank_align.fa```
+The exon-only version of Contig73 (Kindr) and Contig74 (Kin11) are used in tree building, as the final two entries in the file here: ```kinesin_tree/kinesin_homologs_TranslatorX_Prank_align.fa```
