@@ -1,0 +1,54 @@
+---
+title: "Plot sites of positive selection on alignment"
+output: html_notebook
+---
+
+Set up libraries
+```{r}
+library(ape)
+library(phangorn)
+```
+
+Plot aa positions.
+```{r}
+aln=read.dna('~/Documents/dawe_ab10_kindr/positive_selection/allsp_kindrlogs_entirealn.fasta', format='fasta', as.matrix=T)
+aa=trans(aln)
+image(aa, cex=0.5)
+
+
+```
+Read in the BUSTED results and plot them on the alignment. 
+```{r}
+upstream=read.csv('~/Documents/dawe_ab10_kindr/positive_selection/upstream_busted.csv')
+downstream=read.csv('~/Documents/dawe_ab10_kindr/positive_selection/downstream_busted.csv')
+### where these fit in aa positions of entire alignment
+uRange=c(1:3,10,13:15,21:24,27:30,32:47,49,60:66,71:73,75:76,81:82,107,113,rep(NA,41), rep(NA, 113),201:935)  ### equal to 113 on upstream only alignment
+
+dRange=c(89:935)  # range of entire aln that is same as downstream (where we will plot downstream on entire)
+
+```
+
+At site 114, we switch to the conserved region that is idential between both alignments.
+
+```{r}
+plot(upstream$site_index, upstream$er_constrained)
+points(downstream$site_index, downstream$er_constrained, col='red')
+
+```
+
+```{r}
+par(mfrow=c(2,1), mar=c(1,6,1,1))
+image(aa, cex=0.5)
+plot(1, 1, col=0, ylim=c(0,6), xlim=c(0,nrow(downstream)))
+points(dRange, rev(downstream$er_constrained), col='red', pch=19)
+#points(c(1:48,201:935), rev(upstream$er_constrained)[uRange[!is.na(uRange)]], col='blue', pch=19)
+points(1:48, rev(upstream$er_constrained)[c(1:3,10,13:15,21:24,27:30,32:47,49,60:66,71:73,75:76,81:82,107,113)], col='blue', pch=19 )
+points(202:935, rev(upstream$er_constrained)[114:847], col='blue', pch=19)
+```
+
+
+
+```{r}
+
+```
+
