@@ -10,11 +10,13 @@ Software needed:
 - mafft
 
 
-First, get SRA reads of *Tripsacum dactyloides*, map to Kin11 and Kindr CDS from maize, and keep only mapped reads and if present, their unmapped pairs.
-This is done in ```map_tripsacum.sh```
+First, get SRA reads of *Tripsacum dactyloides*.
+This is done in ```sra_to_fq.sh```.
 
-Then, extract these reads, convert to fasta with quality, and assemble with phrap.
-This is done in ```bam_to_phrap_assembly.sh```.
+
+Then, map to Kin11 and Kindr CDS from maize, and keep only mapped reads and if present, their unmapped pairs.
+Next, extract these reads, convert to fasta with quality, and assemble with phrap.
+This is done in ```map_tripsacum_then_assemble.sh```.
 
 Assembly is in ```phrap_output/``` and contigs are ```phrap_output/hapmap_tripsacum_kin.CDS.unmapped.mapped.fna.contigs```
 
