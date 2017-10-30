@@ -2,7 +2,7 @@
 
 Required software:
 
-- [BEAST](http://beast.bio.ed.ac.uk/)
+- [BEAST](http://beast.bio.ed.ac.uk/) (we used v1.8.3)
 
 All information, including priors and sequence data is in the BEAST xml file.
 

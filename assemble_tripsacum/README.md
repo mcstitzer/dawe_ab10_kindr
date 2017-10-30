@@ -3,11 +3,11 @@
 Software needed:
 
 - phrap 1.090518, specificially, a version that can deal with short read data (ask Phil Green)
-- bwa mem
-- samtools
-- bedtools
-- bamtools
-- mafft
+- bwa mem (we used v0.7.5a-r405)
+- samtools (we used v0.1.19-96b5f2294a)
+- bedtools (we used v2.25)
+- bamtools (we used v2.2.3)
+- mafft (we used v7.245)
 
 
 First, get SRA reads of *Tripsacum dactyloides*.

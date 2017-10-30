@@ -3,7 +3,7 @@
 Required software:
 
 - R packages
-	- APE
+	- APE (we used v4.1)
 
 
 TEs were extracted manually from multiple alignments of each Kindr copy.
