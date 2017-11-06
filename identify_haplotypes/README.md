@@ -20,3 +20,6 @@ Identify parsimony informative SNPs ```pars_inform_snps.py```
 
 Plot everything and polarize ```plot_haplotypes.R```
 
+
+We identifed singleton SNPs (variants found in only one paralog) using ```singleton_snps.py```, and plotted singleton SNPs using ```plot_singletons_supp.R```.
+
