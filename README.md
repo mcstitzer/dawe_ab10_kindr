@@ -1,4 +1,4 @@
-#Evolutionary analyses for Kindr paper
+### Evolutionary analyses for [Dawe et al., 2018](http://www.cell.com/cell/abstract/S0092-8674(18)30289-7), *A Kinesin-14 Motor Activates Neocentromeres to Promote Meiotic Drive in Maize*
 
 Data and scripts included to:
 
