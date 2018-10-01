@@ -11,5 +11,6 @@ Data and scripts included to:
 4. ```kinesin_divergence_dating/``` date origin of kindr array
 
 5. ```identify_haplotypes/``` characterize IBS regions and plot haplotypes
-
+	- on this `blast-fix` branch, we alter blast parameters in ```identify_haplotypes/te_alignments/blast_tes.sh``` in response to [Issue #1](/../../issues/1).
+	- this changes family assignment in ```identify_haplotypes/TE_table_position.tab``` for 17 TE copies
 
